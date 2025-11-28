@@ -1,0 +1,259 @@
+/* ===== BASE THEME ===== */
+body {
+  background-color: #0f0f0f;
+  color: #f5d76e;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 20px;
+}
+
+h1, h2, h3 {
+  color: #f5d76e;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  font-weight: 700;
+}
+
+/* gold divider */
+hr {
+  border: 1px solid #f5d76e;
+  width: 80%;
+  margin: 20px auto;
+}
+
+/* ===== MENU SECTIONS ===== */
+.menu-section {
+  width: 80%;
+  margin: 0 auto 40px auto;
+  background-color: #1a1a1a;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  transition: 0.3s ease;
+}
+
+.menu-section:hover {
+  background-color: #111;
+  box-shadow: 0 0 22px rgba(212, 175, 55, 0.6);
+}
+
+/* ===== HEADINGS (curved box) ===== */
+h3 {
+  display: inline-block;
+  background: rgba(212,175,55,0.06);
+  padding: 8px 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(212,175,55,0.18);
+  color: #f5e6b3;
+  font-weight: 700;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.5);
+}
+
+/* ===== MENU LIST ===== */
+.menu-list,
+.hard-list {
+  color: #fff;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-top: 10px;
+}
+
+/* ===== MENU BLOCKS ===== */
+.menu-block {
+  max-width: 1000px;
+  margin: 18px auto;
+  text-align: left;
+  background: #1b1b1b;
+  padding: 14px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* ===== MENU ITEMS (converted rows) ===== */
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  border-bottom: 1px dashed #333;
+  color: #ddd;
+}
+
+.menu-item-name {
+  font-weight: 600;
+  text-align: left;
+}
+
+.menu-item-price {
+  color: #f5d76e;
+  font-weight: 700;
+  text-align: right;
+  min-width: 60px;
+}
+
+/* ===== SOURCE PARAGRAPH (multi-line lists) */
+.menu-items {
+  color: #fff;
+  line-height: 1.8;
+  font-size: 15px;
+  white-space: pre-line;
+}
+
+/* ===== SECTION HEADINGS ===== */
+.coffee-heading,
+.restaurant-heading {
+  display: inline-block;
+  color: #f5d76e;
+  text-decoration: underline;
+  text-decoration-color: #f5d76e;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+  margin-bottom: 8px;
+}
+
+/* ===== HARD DRINKS GRID (4 columns) ===== */
+.hard-grid {
+  display: grid;
+  gap: 8px;                 /* space between rows */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hard-grid .name {
+  padding: 8px 10px;
+  color: #ddd;
+  font-weight: 600;
+  text-align: left;
+  font-size: 15px;
+}
+
+.hard-grid .col {
+  padding: 8px 6px;
+  text-align: center;
+  color: #f5d76e;
+  font-weight: 700;
+  white-space: nowrap;
+  font-size: 15px;
+}
+
+.hard-grid .label {
+  font-weight: 800;
+  color: #f5d76e;
+  text-align: center;
+}
+
+/* HARD DRINKS: make names & columns use same font-size as other menu items */
+.hard-grid .name,
+.hard-grid .col {
+  font-size: 15px; /* match your other menu text size */
+}
+
+/* ensure media queries don't enlarge them on mobile */
+@media (max-width: 600px) {
+  .hard-grid .name,
+  .hard-grid .col {
+    font-size: 15px; /* keep same on mobile */
+  }
+}
+
+/* header row (labels) */
+.hard-header,
+.hard-row {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(4, 1fr); /* name column is a bit larger; price columns equal */
+  align-items: center;
+  gap: 0 12px;            /* horizontal gutter between columns */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* header label styling */
+.hard-header { font-weight: 800; color: #f5d76e; }
+.hard-header > .name,
+.hard-header > .col { padding: 6px 8px; text-align: center; }
+
+/* each item row gets a full-width background and consistent height */
+.hard-row {
+  background: rgba(255,255,255,0.03); /* subtle row background */
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+
+/* cells inside rows */
+.hard-row .name  { text-align: left; padding-left: 6px; color: #ddd; font-weight:600; }
+.hard-row .col   { text-align: center; color: #f5d76e; font-weight:700; }
+
+/* ensure price cells do not overflow and remain visible on narrow screens */
+.hard-row .col,
+.hard-header .col {
+  min-width: 2.6rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* responsive adjustments: keep columns equal but allow shrink on very small devices */
+@media (max-width: 520px) {
+  .hard-header,
+  .hard-row {
+    grid-template-columns: 1fr repeat(4, minmax(2.2rem, 1fr));
+    gap: 0 8px;
+  }
+}
+
+/* ===== FOOTER ===== */
+.menu-footer {
+  text-align: center;
+  padding: 20px;
+  color: #bfa75e;
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { font-size: 16px; padding: 12px; }
+  h1 { font-size: 26px; line-height: 1.1; }
+  h2, h3 { font-size: 20px; }
+
+  .menu-item { flex-direction: row; gap: 18px; }
+
+  .hard-grid { grid-template-columns: 1fr repeat(4, 72px); gap: 6px 8px; }
+  .hard-grid .col,
+  .hard-grid .name,
+  .menu-item,
+  .menu-item-name,
+  .menu-item-price,
+  .menu-items {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+}
+
+/* base: 1rem == 16px on all devices */
+:root {
+  --menu-font-size: 1rem; /* 16px */
+}
+
+/* make sure container widths are fluid; avoid forcing fixed widths */
+.menu-block {
+  max-width: 1000px;   /* limit width but allow shrinking */
+  width: 100%;         /* fluid on smaller viewports */
+  box-sizing: border-box;
+}
+
+/* set consistent menu font sizing (non hard-drinks — hard-grid left unchanged) */
+.menu-item-name,
+.menu-item-price,
+.menu-items {
+  font-size: var(--menu-font-size);
+  line-height: 1.5;
+}
+
+/* avoid any other hard fixed-width rules for child elements; prefer max-width / min-width if needed */
+img, .menu-block img {
+  max-width: 100%;
+  height: auto;
+}
