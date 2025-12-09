@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- make page fit correctly on mobile and prevent iOS auto-zoom -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Hotel Sandhya Inn - Digital Menu</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* prevent iOS/Android auto-zoom - DEFINE ONCE ONLY */
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    :root { --menu-font-size: 0.875rem; }
+
+    /* base */
+    body {
+      background-color: #0f0f0f;
+      color: #f5d76e;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+    h1,h2,h3 { color: #f5d76e; font-weight:700; text-align:center; }
+    p { color:#ccc; }
+    hr { border:1px solid #f5d76e; width:80%; margin:20px auto; }
+
+    /* containers */
+    .menu-block {
+      max-width:1000px;
+      margin:18px auto;
+      text-align:left;
+      background:#1b1b1b;
+      padding:14px;
+      border-radius:8px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.6);
+    }
+
+    /* large grey background for hard drinks that spans all columns */
+    .menu-block.hard-wrap {
+      max-width: 1000px;
+      width: 100%;
+      margin: 18px auto;
+      padding: 14px;
+      background: rgba(35, 35, 35, 0.98);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      box-sizing: border-box;
+      overflow: hidden; /* keep grid content visually inside the box */
+    }
+
+    /* hard drinks grid — allow columns to shrink and prevent overflow */
+    .hard-grid {
+      display: grid;
+      grid-template-columns: minmax(120px, 1fr) repeat(4, minmax(40px, 1fr));
+      gap: 0 6px;
+      align-items: center;
+      width: 100%;
+      box-sizing: border-box;
+      background: transparent;
+    }
+
+    /* allow grid children to shrink past intrinsic content */
+    .hard-grid > div,
+    .hard-grid .name,
+    .hard-grid .col {
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    .hard-grid .name {
+      padding: 10px 8px;
+      color: #ddd;
+      font-weight: 600;
+      text-align: left;
+      font-size: var(--menu-font-size);
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+    .hard-grid .col {
+      padding: 10px 6px;
+      text-align: center;
+      color: #f5d76e;
+      font-weight: 700;
+      white-space: nowrap;
+      font-size: var(--menu-font-size);
+    }
+    .hard-grid .label {
+      font-weight: 800;
+      color: #f5d76e;
+      text-align: center;
+    }
+
+    /* progressively reduce minimum column width on small screens */
+    @media (max-width: 768px) {
+      .hard-grid {
+        grid-template-columns: minmax(100px, 1fr) repeat(4, minmax(36px, 1fr));
+      }
+      .hard-grid .name { padding: 9px 6px; font-size: 0.85rem; }
+      .hard-grid .col  { padding: 9px 4px; font-size: 0.85rem; }
+    }
+
+    @media (max-width: 420px) {
+      .hard-grid {
+        grid-template-columns: minmax(90px, 1fr) repeat(4, minmax(32px, 1fr));
+        gap: 0 4px;
+      }
+      .hard-grid .name { padding: 8px 6px; font-size: 0.78rem; }
+      .hard-grid .col  { padding: 8px 3px; font-size: 0.78rem; }
+    }
+
+    @media (max-width: 360px) {
+      .hard-grid {
+        grid-template-columns: minmax(80px, 1fr) repeat(4, minmax(28px, 1fr));
+      }
+      .hard-grid .name { font-size: 0.72rem; }
+      .hard-grid .col  { font-size: 0.72rem; }
+    }
+
+    /* responsive */
+    @media (max-width:600px) {
+      body { padding:12px; }
+      h1 { font-size:1.5rem; }
+      h2,h3 { font-size:1.125rem; }
+      .menu-item { flex-direction:row; gap:18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>HOTEL SANDHYA INN</h1>
+  <h2>MENU</h2>
+
+  <p>Scroll down to explore all categories</p>
+  <hr>
+
+  <!-- COFFEE MENU -->
+  <h2 class="coffee-heading">COFFEE MENU</h2>
+  <h3>HOT BEVERAGES</h3>
+  <p>Double Espresso - 110<br>Single Espresso - 90<br>Espresso Machiato - 110<br>Affogato - 140<br>Americano (S) - 110<br>Americano (D) - 130<br>Ristretto - 110<br>Lungo - 120<br>Cafe Latte - 160<br>Cappuccino - 160<br>Cafe Mocha - 180<br>Cafe Mocha Madness - 200<br>Caramel Machiato - 180<br>Hazelnut Latte - 170<br>Honey Latte - 170<br>Caramel Latte - 170<br>Vanilla Latte - 170<br>Lotte Machiato - 160<br>Cotardo - 140<br>Flat White - 160</p>
+
+  <h3>NON-COFFEE</h3>
+  <p>Lemon Tea with Ginger - 40<br>Hot Lemon with Honey - 100<br>Hot Lemon with Honey and Ginger - 120<br>Lemon Soda - 70<br>Peach Tea - 70<br>Apple Tea - 70<br>Hot Chocolate - 150<br>Lassi (Plain/Sweet) - 100/120<br>Flavour Lassi - 150<br>Seasonal Fresh Juice - 200</p>
+  
+  <h3>COLD BEVERAGES</h3>
+  <p>Iced Americano (S/D) - 150/160<br>Iced Latte - 180<br>Iced Cappuccino - 180<br>Iced Mocha - 190<br>Iced Mocha Madness - 200<br>Iced Caramel Machiato - 200<br>Iced Coffee - 200</p>
+
+  <h3>MILK SHAKE</h3>
+  <p>Strawberry Milkshake - 200<br>Chocolate Milkshake - 200<br>Vanilla Milkshake - 200<br>Caramel Milkshake - 200<br>Kiwi Milkshake - 200<br>Oreo Milkshake - 230<br>Blueberry Milkshake - 200</p>
+
+  <h3>ICED TEA</h3>
+  <p>Peached Iced Tea - 180<br>Apple Iced Tea - 180<br>Lemon Iced Tea - 180</p>
+
+  <h3>FRAPPE</h3>
+  <p>Mocha - 250<br>Oreo - 270<br>Caramel - 250<br>Vanilla - 250</p>
+
+  <h3>SMOOTHIE</h3>
+  <p>Apple - 220<br>Strawberry - 220<br>Blueberry - 220<br>Banana - 220<br>Mixed Fruit - 220</p>
+
+  <h3>REFRESHER</h3>
+  <p>Kiwi - 200<br>Blueberry - 200<br>Strawberry - 200<br>Pineapple - 200<br>Mango - 200<br>Mint Refresher - 200</p>
+
+  <h3>LEMONADE</h3>
+  <p>Iced Lemonade - 140<br>Fresh Mint Lemonade - 150<br>Strawberry Lemonade - 150</p>
+
+  <h3>ICE CREAM</h3>
+  <p>Vanilla Ice Cream with Strawberry - 150<br>Vanilla Ice Cream with Chocolate - 150</p>
+
+  <hr>
+
+  <!-- RESTAURANT MENU -->
+  <h2 class="restaurant-heading">RESTAURANT MENU</h2>
+
+ <h3>TEA </h3>
+  <p>Milk Tea - 50<br>Masala Tea - 60<br>Black Tea - 30<br>Black Tea with Ginger (Large) - 60<p>
+  
+  <h3>BREAKFAST</h3>
+  <p>Bread Toast (3 pcs) - 70<br>Bread Butter Jam (4 pcs) - 130<br>Bread Omelette - 150<br>Boil Egg (2 pcs) - 100<br>Plain Omelette - 120<br>Masala Omelette - 150<br>Pan Cake - 150<br>Aloo Paratha - 150<br>Plain Paratha - 100<br>Paneer Paratha - 250<br>Lachha Paratha - 100<br>Veg Sandwich - 130<br>Chicken Sandwich - 200<br>Cornflakes with Milk - 250<br>Muesli with Curd - 200</p>
+
+  <h3>PIZZA / BURGER</h3>
+  <p>Veg Pizza - 370<br>Veg Pizza (Mixed) - 400<br>Cheese Pizza - 400<br>Mushroom Pizza - 400<br>Chicken Pizza Mixed - 450<br>Veg Burger - 170<br>Chicken Burger - 270</p>
+
+  <h3>PASTA / CHOP SUEY</h3>
+  <p>Veg Pasta - 250<br>Mixed Pasta - 270<br>Chicken Pasta - 300<br>Paneer Pasta - 350<br>American/Chinese Chop Suey - 350</p>
+
+  <h3>SOUP (VEG / NON-VEG)</h3>
+  <p>Veg Clear Soup - 100<br>Veg Sweet Corn Soup - 120<br>Veg Hot and Sour Soup - 150<br>Mushroom Soup - 150<br>Mixed Veg Soup - 170<br>Chicken Soup - 250<br>Chicken Hot and Sour Soup - 270<br>Chicken Sweet Corn Soup - 270<br>Local Chicken Soup - 300<br>Mutton Nepali Soup - 300</p>
+
+
+  <h3>VEG SNACKS</h3>
+  <p>French Fry - 180<br>Aaloo 65 - 220<br>Aaloo Jeera - 200<br>Mustangi Aaloo - 270<br>Potato Chilly - 270<br>Piro Aaloo - 200<br>Veg Pakoda - 200<br>Onion Pakoda - 220<br>Onion Rings - 220<br>Paneer Pakoda - 350<br>Mushroom Pakoda - 300<br>Crispy SweetCorn - 250<br>Baby Corn 65 - 300<br>Paneer Chilly - 350<br>Baby Corn Chilly - 300<br>Mushroom Chilly - 300<br>Veg Crispy - 270<br>Veg Manchurian -250<br>Paneer Manchurian - 370<br>Mushroom Manchurian - 350</p>
+
+  <h3>SNACKS</h3>
+  <p>Popcorn - 100<br>Fry/Dry Papad (2 pcs) - 80<br>Papad Masala - 250<br>Peanut Masala - 200<br>Peanut Sadheko - 200<br>Bhatmas Sadheko - 200<br>Paneer Sadheko - 320<br>Corn Sadheko - 250<br>Kacho Chana Sadheko - 200<br>Kacho Chana Fry - 220</p>
+
+  <h3>NON-VEG SNACKS</h3>
+  <p>Chicken 65 - 370<br>Chicken Chilly - 370<br>Mutton Chilly - 470<br>Chicken Manchurian - 370<br>Mutton Manchurian - 450<br>Garlic Chicken - 350<br>Chicken Meatball - 400<br>Tai Pai Chicken - 400<br>Dragon Chicken - 450<br>Chicken Lollipop - 450<br>Chicken Drumstick - 420<br>Lemon Chicken with Garlic - 370<br>Schezwan Chicken - 400<br>Crispy Chicken - 450<br>Chicken Roast - 350<br>Sausage Fry - 300<br>Sausage Boil - 300<br>Sausage Chilly - 350</p>
+
+  <h3>MOMO</h3>
+  <p>Veg. Momo - 100<br>Chicken Momo - 150<br>Jhol Momo - Veg. - 150<br>Jhol Momo - Chicken - 200<br>C. Momo - Veg. - 170<br>C. Momo - Chicken - 250<br>Kothey Momo - 250</p>
+
+  <h3>NOODLES AND THUKPA</h3>
+  <p>Veg. Chowmein - 150<br>Mixed Veg. Chowmein - 180<br>Chicken Chowmein - 220<br>Egg Chowmein - 200<br>Mixed Non Veg. Chowmein - 300<br>Veg. Hakka Noodles - 200<br>Chicken Hakka Noodles - 270<br>Chicken Thukpa - 220<br>Mixed Veg. Thukpa - 180<br>Egg Thukpa - 200<br>Mutton Thukpa - 300</p>
+
+  <h3>THAKALI KHANA</h3>
+  <p>Veg. Thakali - 270<br>Chicken Thakali - 450<br>Local Chicken Thakali - 480<br>Mutton Thakali - 480<br>Fish Thakali - 480<br>Paneer Thakali - 450<br>Dhedo Set - Thakali (Veg) - 300<br>Dhedo Set - Thakali (Non Veg) - 500</p>
+
+  <h3>RICE & BIRYANI</h3>
+  <p>Plain Rice - 1 Bowl - 180<br>Veg. Fried Rice - 250<br>Mixed Veg. Fried Rice - 300<br>Paneer Fried Rice - 300<br>Veg. Schezwan Rice - 270<br>Kuji Fried Rice - 350<br>Mushroom Fried Rice - 300<br>Chicken Fried Rice - 350<br>Egg Fried Rice - 300<br>Mutton Fried Rice - 400<br>Hyderabadi Biryani - 400<br>Veg. Biryani - 300<br>Egg Biryani - 330<br>Chicken Biryani - 370<br>Chicken Dum Biryani - 450<br>Mutton Biryani - 500</p>
+
+  <h3>ROTI</h3>
+  <p>Tawa Roti (Per Pc) - 30<br>Tawa Butter Roti (Per Pc) - 40<br>Butter Naan (Per Pc) - 140<br>Garlic Naan (Per Pc) - 150<br>Plain Naan (Per Pc) - 100</p>
+
+  <h3>SEKUWA</h3>
+  <p>Chicken Sekuwa - 350<br>Local Chicken Sekuwa - 400<br>Mutton Sekuwa - 400<br>Wings (Poleko/Fry - 2 pcs) - 300<br>Leg Piece (Poleko/Fry - per pc) - 250<br>Chicken Fry - 350<br>Mutton Fry - 400<br>Local Chicken Fry - 400<br>Fish Fry / Boil - 300</p>
+
+  <h3>SPRING ROLL</h3>
+  <p>Veg Spring Roll - 170<br>Egg Spring Roll - 270<br>Chicken Spring Roll - 350<br>Mix Veg Spring Roll - 370<br>Kothey Spring Roll - 370</p>
+
+  <h3>INDIAN CURRY (VEG / NON-VEG)</h3>
+  <p>Mixed Veg Boil - 250<br>Mix Veg Curry - 300<br>Mushroom Masala - 300<br>Kadai Paneer - 350<br>Paneer Butter Masala - 370<br>Veg Malai Kofta - 350<br>Butter Chicken Masala - 400<br>Kadai Chicken - 400<br>Egg Masala - 300<br>Egg Bhujuri - 300<br>Daal Fry / Daal Tadka - 250<br>Matar Paneer - 350<br>Rajma Curry - 250<br>Chicken Curry - 350<br>Mutton Curry - 400<br>Fish Curry - 350<br>Fish Masala - 350<br>Sausage Curry - 350</p>
+
+  <h3>TANDOORI</h3>
+  <p>Veg Seekh Kebab - 270<br>Veg Tikka - 250<br>Paneer Tikka Masala - 450<br>Chicken Tikka Masala - 500<br>Tandoori Chicken (Half/Full) - 900/1600<br>Mutton Kebab - 600</p>
+
+  <h3>SALAD</h3>
+  <p>Green Salad - 120<br>Mixed Salad - 200<br>Russian Salad - 170<br>Fruit Salad - 250<br>Nepali Salad - 120</p>
+
+  <h3>NEPALI SNACKS</h3>
+  <p>Chicken Sadheko - 300<br>Mutton Sadheko - 400<br>Tawa Chicken - 400<br>Mutton Jhaneko Sekuwa - 450<br>Chicken Chhoila - 400<br>Chicken Boli - 300<br>Mutton Boli - 350<br>Nepali Style Local Chicken Fry - 400<br>Nepali Style Mutton Fry - 400<br>Chicken Padakpuduk - 400<br>Mutton Tass - 400</p>
+
+  <hr>
+
+  <h3>COLD DRINKS</h3>
+  <p>Coke / Fanta / Sprite - 2.25 ltr - 350<br>Coke / Fanta / Sprite - 500 ml - 110<br>Coke / Fanta / Sprite - 250 ml - 70<br>Soda - 500 ml - 70<br>Badam Juice - 150<br>Real Juice - 1 ltr - 180<br>Frooti - 30<br>Redbull - 350<br>Extreme - 180<br>Apple Cyder - 350<br>Mineral Water - 30</p>
+
+  <h3>BEER</h3>
+  <p>Carlsberg - 630<br>Tuborg - 600<br>Gorkha Strong - 470<br>Tuborg  Can - 470<br>Gorkha Strong - Mini - 260</p>
+
+  <h3>WINE</h3>
+  <p>Divine (Red / White) - 1100<br>Big Master (Red / White) - 1400<br>Hinwa (Red / White) - 1000<br>Royal (Red / White) - 1500</p>
+
+  <h3>BRANDED WINE</h3>
+  <p>Porto - 4500<br>JP Chenet - 3100<br>Jacob's Creek - 3200<br>Robertson - 3100<br>Bottega Pinot Grigio - 3100<br>Bottega Cabernet - 3100<br>Bottega Merlot - 3100</p>
+
+  <h3>HARD DRINKS</h3>
+  <div class="menu-block hard-wrap">
+    <p class="menu-items">
+Old Durbar (C) - 4900 / 2500 / 1300 / 800<br>
+Old Durbar (R) - 3800 / 1950 / 1050 / 700<br>
+Himalayan Reserve - 4500 / 2300 / 1200 / 700<br>
+Kala Patthar - 4100 / 2150 / 1150 / 600<br>
+Gurkhas and Guns - 4500 / 2300 / 1200 / 700<br>
+Signature (R) - 3800 / 1950 / 1050 / 700<br>
+Signature (G) - 3600 / 1900 / 1000 / 600<br>
+8848 Vodka - 3100 / 1600 / 900 / 500<br>
+Nude Vodka - 3100 / 1600 / 850 / 450<br>
+Khukuri Rum - 3100 / 1600 / 850 / 450<br>
+Old Monk - 3100 / 1700 / 900 / 500<br>
+Golden Oak - 1900 / 1000 / 550 / 350
+    </p>
+  </div>
+
+  <h3>IMPORTED WHISKY & VODKA</h3>
+  <p>Red Label - 9700<br>Black Label - 12500<br>Double Black Label - 14800<br>Jack Daniels - 12000<br>VAT 69 - 9500<br>Chivas (12 Yrs) - 12000<br>Absolute Vodka - 9500<br>Absolute A Peach - 11000</p>
+
+  <hr>
+  
+  <p>📞 Contact: 025-571002</p>
+  <p>Thank you for visiting Hotel Sandhya Inn!</p>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1) Convert plain multi-line <p> lists into .menu-block rows (skip hard-drinks source paragraph)
+      const paragraphs = Array.from(document.querySelectorAll('body > p, body > .menu-block > p'))
+        .filter(p => !p.classList.contains('menu-items'));
+
+      paragraphs.forEach(p => {
+        const raw = p.innerHTML.trim();
+        const lines = raw.split(/<br\s*\/?>/i).map(l => l.trim()).filter(Boolean);
+        if (lines.length < 2) return;
+        const dashCount = lines.reduce((c,l) => c + (l.includes('-') ? 1 : 0), 0);
+        if (dashCount < Math.ceil(lines.length / 2)) return;
+
+        const container = document.createElement('div');
+        container.className = 'menu-block';
+        lines.forEach(line => {
+          let name = line, price = '';
+          const sepIndex = line.lastIndexOf(' - ');
+          if (sepIndex !== -1) {
+            name = line.substring(0, sepIndex).trim();
+            price = line.substring(sepIndex + 3).trim();
+          } else {
+            const i = line.lastIndexOf('-');
+            if (i !== -1) { name = line.substring(0, i).trim(); price = line.substring(i + 1).trim(); }
+          }
+
+          if (price) {
+            const item = document.createElement('div');
+            item.className = 'menu-item';
+            const n = document.createElement('span'); n.className = 'menu-item-name'; n.textContent = name;
+            const pv = document.createElement('span'); pv.className = 'menu-item-price'; pv.textContent = price;
+            item.appendChild(n); item.appendChild(pv); container.appendChild(item);
+          } else {
+            const l = document.createElement('div'); l.style.padding='6px 10px'; l.style.color='#ccc'; l.textContent = line;
+            container.appendChild(l);
+          }
+        });
+        p.replaceWith(container);
+      });
+
+      // 2) Convert the hard-drinks paragraph into a 4-column grid (FULL / HALF / QTR / 90ML)
+      const hardPara = document.querySelector('p.menu-items');
+      if (!hardPara) return;
+      const lines = hardPara.innerHTML.split(/<br\s*\/?>/i).map(l => l.trim()).filter(Boolean);
+
+      const grid = document.createElement('div');
+      grid.className = 'hard-grid';
+      const empty = document.createElement('div'); empty.className = 'name label'; empty.textContent = ''; grid.appendChild(empty);
+      ['FULL','HALF','QTR','90ML'].forEach(lbl => { const d=document.createElement('div'); d.className='col label'; d.textContent=lbl; grid.appendChild(d); });
+
+      lines.forEach(line => {
+        let name=line, pricePart='';
+        const sep = line.indexOf(' - ');
+        if (sep !== -1) { name=line.slice(0,sep).trim(); pricePart=line.slice(sep+3).trim(); }
+        else { const i=line.indexOf('-'); if (i!==-1){ name=line.slice(0,i).trim(); pricePart=line.slice(i+1).trim(); } }
+
+        const parts = pricePart.split(/\/|\||,/).map(s=>s.trim()).filter(Boolean);
+        const nameCell=document.createElement('div'); nameCell.className='name'; nameCell.textContent=name; grid.appendChild(nameCell);
+        for (let i=0;i<4;i++){ const c=document.createElement('div'); c.className='col'; c.textContent=parts[i]?parts[i]:'-'; grid.appendChild(c); }
+      });
+
+      hardPara.replaceWith(grid);
+    });
+  </script>
+
+</body>
+</html>
